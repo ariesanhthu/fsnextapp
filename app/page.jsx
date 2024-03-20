@@ -2,7 +2,8 @@ import Link from 'next/link';
 import Post from './components/Post';
 import styles from './page.module.css'
 import prisma from '@/lib/prisma'
-
+export const dynamic = "auto"; //force-dynamic //force-static
+export const dynamicParams = true; //else we can use false
 async function getPosts(){
   const posts = await prisma.post.findMany({
     where: {published: true},
